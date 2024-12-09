@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .dnone {
+            display: none;
+        }
+
+
+       .background {
+            background: hsla(60, 7%, 3%, 1);
+            background: linear-gradient(45deg, hsla(60, 7%, 3%, 1) 0%, hsla(33, 8%, 21%, 1) 100%);
+            background: -moz-linear-gradient(45deg, hsla(60, 7%, 3%, 1) 0%, hsla(33, 8%, 21%, 1) 100%);
+            background: -webkit-linear-gradient(45deg, hsla(60, 7%, 3%, 1) 0%, hsla(33, 8%, 21%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#080807", endColorstr="#3A3631", GradientType=1 );
+            height: 100vh;
+       }
+
+       @font-face {
+        font-family: myFirstFont;
+        src: url('./Gemah-mL4ZV.otf');
+        }
+
+        .otf {
+        font-family: myFirstFont;
+        text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+        }
+
+       .permanent-marker-regular {
+        font-family: "Permanent Marker", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .textBackground {
+            background-color: rgba(10, 8, 4, 0.521);
+        }
+
+        .textBigSize {
+            font-size: xxx-large;
+        }
+
+        .categories-text {
+            font-size: large;
+        }
+
+        .categories-click {
+            cursor: pointer;
+            
+        }
+
+        .color-yellow {
+          color: #bdfd0c;
+        }
+
+        .color-blue {
+          color: #00ffff;
+        }
+
+        .btnhover-yellow:hover {
+          /* background-color: #bdfd0c; */
+          color: #bdfd0c;
+        }
+
+        .btnhover-blue:hover {
+          /* background-color: #bdfd0c; */
+          color: #00ffff;
+        }
+
+        .categories-click{
+            border-bottom: rgba(255, 0, 0, 0);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            padding-bottom: 5px;
+        }
+
+        .categories-click:hover{
+            color: #bdfd0c;
+            border-bottom-color: #00ffff;
+        }
+        
+        .br {
+            border-right: gray;
+            border-right-style: solid;
+            border-right-width: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .bg-dark {
+            background-color: #0000008f !important;
+        }
+
+       .bg {
+         background-image: url('./3.jpg');
+         background-size: inherit;
+         
+         background-attachment: fixed;
+       }
+       
+       .category-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 30px;
+       }
+
+       .card-custom {
+        width: 30%;
+
+       }
+
+       .width30 {
+        width: 30%;
+       }
+
+       .card:hover {
+        outline: 2px solid #00ffff;
+       }
+
+       .borderhover:hover {
+        outline: 2px solid #00ffff;
+       }
+
+       .borderhover-yellow:hover {
+        outline: 2px solid #bdfd0c;
+       }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bg w-100">
+        <div class="container p-0 ">
+           
+            <div class="d-flex align-items-stretch textBackground pt-3" style="
+            flex-direction: row-reverse;
+        "  >
+                            <!-- Login Cart -->
+                            <div class="d-flex justify-content-between " style="height: 30px;">
+                                <!-- search -->
+                                <div class="d-flex px-2">
+                                  <input type="text" style="min-width: 300px;" class="form-control flex-fill" placeholder="Search Item" aria-label="Username">
+                                  <button class="input-group-text" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFF"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
+                                </div>
+
+                                <!-- Cart -->
+                                <a  class="hv-green px-2" href=""><img src="./shopping-cart.svg" style="width: 30px;" alt=""></a>
+                                
+                                <!-- Login -->
+                                <a href="" class="px-2"><img class="hv-green" src="./person.svg" style="width: 30px;" alt=""></a>
+                            </div>
+             
+                
+            </div>
+            <div style="width:100%; height: 150px; text-align: center;">
+              <!-- <img src="./dnebg.png" style="width: 130%;height: 100%;opacity: 0.4;transform: translate(-11%, 0px); position: relative; z-index: 1;" alt=""> -->
+              <img src="./dnebg.png" class="p-3" style="height: 100%;transform: translate(-11%, 0px); position: relative; z-index: 1;" alt="">
+            </div>
+            <!-- Categories -->
+            <div class="d-flex text-center permanent-marker-regular bg-dark justify-content-between categories-text pt-3 pb-3">
+                <div class="br categories-click flex-fill ">KIMONO</div>
+                <div class="br categories-click flex-fill ">HATS</div>
+                <div class="br categories-click flex-fill ">T-SHIRTS</div>
+                <div class="br categories-click flex-fill ">BAGS</div>
+                <div class="br categories-click flex-fill ">BANDANAS</div>
+                <div class="categories-click flex-fill ">ACCESSORIES</div>
+            </div>
+
+            <button onclick="ckimono()">ckimono</button>
+            <button onclick="kimono()">kimono</button>
+            <button onclick="cback()">cback</button>
+            <button onclick="back()">back</button>
+            <!-- Items -->
+            <div class="pt-4 permanent-marker-regular">
+                <div class="category-cards" id="kimono-card">
+                    
+                  <div class="card card-custom">
+                      <img src="./kimono1.webp" class="card-img-top" alt="...">
+                      
+                      <div class="card-body">
+                        <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                        
+                        <div class="d-flex justify-content-around">
+                          <div class="text-center w-75">
+                            <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                          </div>
+                          
+                          <div class="size d-flex ml-2 justify-content-center">
+                            <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                          </div>
+                        </div>
+
+                        <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                      </div>
+                    </div>
+
+                    <div class="card card-custom">
+                      <img src="kimono2.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                        
+                        <div class="d-flex justify-content-around">
+                          <div class="text-center w-75">
+                            <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                          </div>
+                          
+                          <div class="size d-flex ml-2 justify-content-center">
+                            <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                          </div>
+                        </div>
+
+                        <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="kimono3.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                        
+                        <div class="d-flex justify-content-around">
+                          <div class="text-center w-75">
+                            <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                          </div>
+                          
+                          <div class="size d-flex ml-2 justify-content-center">
+                            <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                          </div>
+                        </div>
+
+                        <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="kimono4.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                        
+                        <div class="d-flex justify-content-around">
+                          <div class="text-center w-75">
+                            <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                          </div>
+                          
+                          <div class="size d-flex ml-2 justify-content-center">
+                            <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                          </div>
+                        </div>
+
+                        <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                        <img src="kimono5.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                          
+                          <div class="d-flex justify-content-around">
+                            <div class="text-center w-75">
+                              <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                            </div>
+                            
+                            <div class="size d-flex ml-2 justify-content-center">
+                              <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                              <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                              <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                            </div>
+                          </div>
+  
+                          <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                        </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="kimono6.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title text-center categories-text color-yellow" style="font-size: 30px;">1880 мкд</h5>
+                        
+                        <div class="d-flex justify-content-around">
+                          <div class="text-center w-75">
+                            <button class="btn borderhover btnhover-blue m-1 w-100 card-text  text-center border mx-auto" onclick="copyText('JPKIM01')" ><span id="myInput">JPKIM01</span></button>
+                          </div>
+                          
+                          <div class="size d-flex ml-2 justify-content-center">
+                            <div class="btn borderhover btnhover-blue m-1 border ">S</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">M</div>
+                            <div class="btn borderhover btnhover-blue m-1 border ">L</div>
+                          </div>
+                        </div>
+
+                        <button class="btn borderhover-yellow btnhover-yellow textBackground mt-2 w-100 border">ADD TO CART</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="category-cards" id="bag-card">
+                    <div class="card card-custom">
+                      <img src="./bag1.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="bag2.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="bag3.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="bag4.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                    <div class="card card-custom">
+                        <img src="bag5.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card card-custom">
+                      <img src="bag6.webp" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ckimono() {
+            let cardDiv = document.getElementById('kimono-card')
+            cardDiv.classList.add("dnone");
+            cardDiv.classList.remove('category-cards')
+        }
+
+        function kimono() {
+            let cardDiv = document.getElementById('kimono-card')
+            cardDiv.classList.remove("dnone");
+            cardDiv.classList.add('category-cards')
+        }
+        
+        function cback() {
+            let cardDiv = document.getElementById('bag-card')
+            cardDiv.classList.add("dnone");
+            cardDiv.classList.remove('category-cards')
+        }
+
+        function back() {
+            let cardDiv = document.getElementById('bag-card')
+            cardDiv.classList.remove("dnone");
+            cardDiv.classList.add('category-cards')
+        }
+        
+        function copyText(value) {
+          navigator.clipboard.writeText(value)
+        }
+        $(document).ready(function(){
+
+            
+
+        });
+    </script>
+</body>
+</html>
